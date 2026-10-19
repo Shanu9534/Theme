@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        overflow: hidden;
+    }
+    img {
+        width: 101vw;
+        height: 101vh;
+        object-fit: cover;
+        position: fixed;
+        top: -0.5vh;
+        left: -0.5vw;
+        transition: opacity 0.3s ease;
+    }
+</style>
+</head>
+<body>
+    <img id="bg-image" src="" alt="background">
+
+    <script>
+        (function() {
+            // List of image URLs (1 to 50)
+            const images = [
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/1.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/2.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/3.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/4.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/5.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/6.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/7.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/8.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/9.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/10.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/11.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/12.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/13.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/14.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/15.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/16.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/17.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/18.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/19.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/20.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/21.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/22.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/23.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/24.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/25.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/26.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/27.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/28.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/29.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/30.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/31.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/32.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/33.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/34.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/35.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/36.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/37.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/38.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/39.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/40.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/41.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/42.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/43.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/44.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/45.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/46.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/47.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/48.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/49.jpg",
+                "https://raw.githubusercontent.com/Shanu9534/Theme/main/50.jpg"
+            ];
+
+            // Pick a random image (1 to 50)
+            function pickRandomImage() {
+                const randomIndex = Math.floor(Math.random() * images.length);
+                return images[randomIndex];
+            }
+
+            // Set image on page load
+            const imgElement = document.getElementById('bg-image');
+            imgElement.src = pickRandomImage();
+        })();
+    </script>
+</body>
+</html>
