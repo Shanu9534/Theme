@@ -28,6 +28,9 @@
 
     <script>
         (function() {
+            // ✅ Yahan time set karo — 24 ghante
+            const CHANGE_INTERVAL = 24 * 60 * 60 * 1000;
+
             // List of image URLs (1 to 50)
             const images = [
                 "https://raw.githubusercontent.com/Shanu9534/Theme/main/1.jpg",
@@ -82,15 +85,51 @@
                 "https://raw.githubusercontent.com/Shanu9534/Theme/main/50.jpg"
             ];
 
-            // Pick a random image (1 to 50)
             function pickRandomImage() {
                 const randomIndex = Math.floor(Math.random() * images.length);
                 return images[randomIndex];
             }
 
-            // Set image on page load
             const imgElement = document.getElementById('bg-image');
-            imgElement.src = pickRandomImage();
+
+            function applyImage() {
+                const saved = localStorage.getItem('bgImageUrl');
+                const lastChange = parseInt(localStorage.getItem('bgImageTime') || '0', 10);
+                const now = Date.now();
+
+                // 24 ghante nahi hue to wahi image rakho
+                if (saved && (now - lastChange) < CHANGE_INTERVAL) {
+                    imgElement.src = saved;
+                } else {
+                    const newImage = pickRandomImage();
+                    imgElement.src = newImage;
+                    localStorage.setItem('bgImageUrl', newImage);
+                    localStorage.setItem('bgImageTime', now.toString());
+                }
+            }
+
+            applyImage();
+
+            function scheduleNextChange() {
+                const lastChange = parseInt(localStorage.getItem('bgImageTime') || '0', 10);
+                const now = Date.now();
+                let delay = CHANGE_INTERVAL - ((now - lastChange) % CHANGE_INTERVAL);
+                if (delay <= 0 || delay > CHANGE_INTERVAL) delay = CHANGE_INTERVAL;
+
+                setTimeout(function() {
+                    const newImage = pickRandomImage();
+                    imgElement.style.opacity = '0';
+                    setTimeout(function() {
+                        imgElement.src = newImage;
+                        imgElement.style.opacity = '1';
+                        localStorage.setItem('bgImageUrl', newImage);
+                        localStorage.setItem('bgImageTime', Date.now().toString());
+                        scheduleNextChange();
+                    }, 300);
+                }, delay);
+            }
+
+            scheduleNextChange();
         })();
     </script>
 </body>
